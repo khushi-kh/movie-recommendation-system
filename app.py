@@ -11,9 +11,9 @@ def fetch_poster(movie_id):
         data = response.json()
         return 'https://image.tmdb.org/t/p/w500/' + data['poster_path']
     except requests.exceptions.ConnectionError:
-        return 'Movie Recommender System\poster not available.png'
+        return 'Movie Recommender System/poster not available.png'
     except requests.exceptions.RequestException as e:
-        return 'Movie Recommender System\poster not available.png'
+        return 'Movie Recommender System/poster not available.png'
 
 
 # function to recommend a movie
@@ -30,10 +30,10 @@ def recommend(movie):
         recommended_movies_posters.append(fetch_poster(movie_id)) # fetch movie poster
     return recommended_movies, recommended_movies_posters
 
-movies_dict = pickle.load(open('Movie Recommender System\movies_dict.pkl', 'rb'))
+movies_dict = pickle.load(open('Movie Recommender System/movies_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 
-similarity = pickle.load(open('Movie Recommender System\similarity.pkl', 'rb'))
+similarity = pickle.load(open('Movie Recommender System/similarity.pkl', 'rb'))
 
 st.title("Movie Recommender System")
 
@@ -49,7 +49,7 @@ if st.button("Recommend"):
 
     with col1:
         st.write(names[0])
-        st.image('Movie Recommender System\poster not available.png')
+        st.image(posters[0)
 
     with col2:
         st.write(names[1])
